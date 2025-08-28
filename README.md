@@ -9,8 +9,8 @@ Agile 방식 중 하나로, 테스트를 먼저 설계하고 코드를 작성하
 - 기능을 주차가하거나 변경하는 과정에서 발생할 수 있는 Side-Effect를 줄일 수 있음
 
 ## 테스트 툴
-### 1. 유닛테스트
-- [JUnit 5](#junit-5)
+### 1. [유닛테스트](#유닛-테스트)
+- JUnit 5
 - Mockito
 
 ### 2. API 통합 테스트
@@ -40,7 +40,7 @@ Agile 방식 중 하나로, 테스트를 먼저 설계하고 코드를 작성하
 
 <br/>
 
-# Junit 5
+# 유닛 테스트
 ## Junit 모듈
 
 ```test
@@ -144,4 +144,18 @@ JUnit 5 Test Lifecycle
 | `@TestConfiguration`                 | - 테스트용 별도 Bean 정의 <br/>  - 테스트 환경용 설정 추가 가능                                     |
 
 <br/>
+
+## 테스트 코드 구조
+
+```
+src/main/java
+ └─ com.example.demo
+     ├─ model/User.java          → 테스트 대상 데이터 모델
+     ├─ repository/UserRepository.java  → 인터페이스(Mock 대상)
+     └─ service/UserService.java → 비즈니스 로직
+
+src/test/java
+ └─ com.example.demo.unit
+     └─ UserServiceTest.java    → JUnit5 + Mockito 테스트 코드
+```
 
